@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>{{title}}</title>
+    <script>
+function sendJSON(p1) {
+
+	var myForm  = document.getElementById(p1);
+	var objJson = {};
+	    for(var value of myForm.childNodes.values()){
+		if(value.name!= "undefined")
+		{
+			var key = value.name
+			var data = value.value
+			objJson[key] = data
+		}
+	}
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", myForm.action, true);
+	xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+	xhr.send(JSON.stringify(objJson));
+    }
+    </script>
+
+</head>
+<body>
