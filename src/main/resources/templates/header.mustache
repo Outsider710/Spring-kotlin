@@ -16,13 +16,10 @@
 	}
 
 	var xmlhttp = new XMLHttpRequest();
-
-xmlhttp.open("POST", myForm.action);
-xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-xmlhttp.send(JSON.stringify(data));
-alert("ok")
-
-
+    xmlhttp.open("POST", myForm.action);
+    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xmlhttp.send(JSON.stringify(data));
+    
     }
     </script>
 
