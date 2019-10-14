@@ -2,23 +2,27 @@
 <head>
     <title>{{title}}</title>
     <script>
-function sendJSON(p1) {
-
-	var myForm  = document.getElementById(p1);
-	var objJson = {};
-	    for(var value of myForm.childNodes.values()){
-		if(value.name!= "undefined")
+ function sendJSON(formName) {
+	var myForm  = document.getElementById(formName);
+	var data = {};
+	    for(var formElement of myForm.childNodes.values()){
+		if(formElement.name!= "undefined" && formElement.name!= "")
 		{
-			var key = value.name
-			var data = value.value
-			objJson[key] = data
+			var key = formElement.name
+			var value = formElement.value
+
+			data[key] = value
 		}
 	}
 
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", myForm.action, true);
-	xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-	xhr.send(JSON.stringify(objJson));
+	var xmlhttp = new XMLHttpRequest();
+
+xmlhttp.open("POST", myForm.action);
+xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xmlhttp.send(JSON.stringify(data));
+alert("ok")
+
+
     }
     </script>
 
